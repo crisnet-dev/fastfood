@@ -12,7 +12,6 @@ func SetupRoutes() *http.ServeMux {
 
 	mux.HandleFunc("GET /ws", ws.HandleConnections)
 
-	mux.HandleFunc("POST /upload", handlers.UploadImageHandler)
 	mux.HandleFunc("POST /order", handlers.OrderHandler)
 
 	RegisterProductRoutes(mux)

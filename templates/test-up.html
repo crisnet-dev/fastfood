@@ -8,12 +8,32 @@
 </head>
 
 <body>
-    <form action="http://localhost:8080/upload" method="POST" enctype="multipart/form-data">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
 
         <input type="file" name="image">
         <button type="submit">Enviar</button>
 
     </form>
+
+    <script>
+        const formData = new FormData()
+
+        formData.append(
+            "data",
+            JSON.stringify({
+                username: "crisnet",
+                age: 17
+            })
+        )
+
+        formData.append("avatar", fileInput.files[0])
+
+        fetch("/product/upload", {
+            method: "POST",
+            body: formData
+        })
+    </script>
+
 </body>
 
 </html>

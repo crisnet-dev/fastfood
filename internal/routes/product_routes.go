@@ -8,5 +8,5 @@ import (
 
 func RegisterProductRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /product", handlers.GetProductHandler)
-	mux.HandleFunc("POST /product", handlers.AddProductHandler)
+	mux.HandleFunc("POST /product/upload", handlers.UploadProduc)
 }

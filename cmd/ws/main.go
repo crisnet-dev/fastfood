@@ -6,6 +6,7 @@ import (
 
 	"github.com/crisnet-dev/fastfood/internal/config"
 	"github.com/crisnet-dev/fastfood/internal/models"
+	"github.com/crisnet-dev/fastfood/internal/utils"
 	"github.com/gorilla/websocket"
 )
 
@@ -53,18 +54,18 @@ func isAdmin(r *http.Request) bool {
 }
 
 func HandleConnections(w http.ResponseWriter, r *http.Request) {
+	if !isAdmin(r) {
+		log.Println("Invalid Admin connection!")
+		utils.HttpError(w, "Invalid Admin!", 401)
+		return
+	}
+
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 	defer ws.Close()
-
-	if !isAdmin(r) {
-		ws.Close()
-		log.Println("Invalid Admin connection!")
-		return
-	}
 
 	connections[ws] = true
 
