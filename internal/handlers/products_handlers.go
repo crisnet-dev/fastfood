@@ -42,5 +42,13 @@ func UploadProduc(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetProductHandler(w http.ResponseWriter, r *http.Request) {
+	products, err := services.GetProductService()
+	if err != nil {
+		utils.HttpError(w, err.Error(), 500)
+		return
+	}
 
+	utils.HttpResponse(w, map[string]any{
+		"products": products,
+	}, 200)
 }

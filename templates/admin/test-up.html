@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="file" name="image" id="d">
+    <button type="submit" onclick="d()">Enviar</button>
+
+    <script>
+        function d() {
+            const formData = new FormData()
+
+            const fileInput = document.getElementById("d")
+
+            console.log(fileInput.files[0]);
+            
+
+            formData.append(
+                "data",
+                JSON.stringify({
+                    product_name: "Other",
+                    price: 1500,
+                })
+            )
+
+            formData.append("image", fileInput.files[0])
+
+            document.write("Proce.....")
+            fetch("/product/upload", {
+                method: "POST",
+                body: formData
+            }).then(r => r.json()).then(d => console.log(d))
+            document.write("Ok")
+        }
+    </script>
+
+</body>
+
+</html>

@@ -18,9 +18,18 @@ func UploadProductService(product *models.Product, file multipart.File) error {
 
 	product.ImageURL = response.SecureURL
 
-	log.Print(response.SecureURL)
-
-	repository.AddNewProductRepository(product)
+	if err := repository.AddNewProductRepository(product); err != nil {
+		log.Println(err)
+		return err
+	}
 
 	return nil
+}
+
+func GetProductService() ([]models.Product, error) {
+	products, err := repository.GetProduct()
+	if err != nil {
+		return []models.Product{}, err
+	}
+	return products, nil
 }
