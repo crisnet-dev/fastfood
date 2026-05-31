@@ -1,0 +1,55 @@
+body > h1 {
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+#file-input {
+    display: none;
+}
+
+.metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.metadata>input {
+    padding: 15px;
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    background-color: #303030;
+    font-size: 16px;
+    color: #fff;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    /* background-color: red; */
+}

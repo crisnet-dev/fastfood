@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/product.css">
+    <link rel="icon" href="../assets/icons/gj1.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Fast Food</title>
+</head>
+
+<body>
+
+    <h1>Products</h1>
+
+    <div class="container">
+        <label for="file-input">
+            <img alt="Adicionar uma imagen" id="img-preview">
+        </label>
+        <input type="file" id="file-input" accept="image/*">
+        <div class="metadata">
+            <input type="text" placeholder="Produto" id="input-product-name">
+            <input type="text" placeholder="Preço" id="input-product-price">
+        </div>
+        <button id="btn-add-product">Cadastrar</button>
+    </div>
+
+    <script src="../scripts/products.js"></script>
+
+</body>
+
+</html>

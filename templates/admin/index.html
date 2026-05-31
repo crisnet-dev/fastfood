@@ -1,46 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
-    <title>FastFood Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="icon" href="assets/icons/gj1.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Fast Food</title>
 </head>
 
 <body>
 
-    <main>
+  <input type="checkbox" id="menu-toggle">
 
-        <nav>
-            <div class="logo">
-                <img src="assets/images/fastfood-logo.png" alt="fastfood-logo" width="200px">
-            </div>
+  <div class="overlay">
+    <label for="menu-toggle" style="width:100%; height:100%; display:block;"></label>
+  </div>
 
-            <ul>
-                <li>
-                    <span>Home</span>
-                </li>
-                <li>
-                    <span>Produtos</span>
-                </li>
-            </ul>
-        </nav>
-
-    </main>
-
-    <div class="login-container">
-        <div>
-            <img src="assets/images/fastfood-logo.png" alt="fastfood-logo">
-            <input id="password" type="password" placeholder="Enter password admin" autocomplete="off">
-            <button id="btn-login">Login</button>
-        </div>
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/images/fastfood-logo.png" width="200px" alt="">
     </div>
 
-    <input type="file" name="image" id="f">
-    <button type="submit" onclick="d()">Enviar</button>
+    <a class="nav-item active" href="./pages/home.html" target="iframe-main"><img src="assets/icons/v_2.png"
+        width="30px" alt="">Home</a>
+    <a class="nav-item" href="./pages/products.html" target="iframe-main"><img src="assets/icons/g8.1.png" width="30px"
+        alt="">Produtos</a>
+    <a class="nav-item" href="./pages/orders.html" target="iframe-main"><img src="assets/icons/ts2.png" width="30px"
+        alt="">Encomendas</a>
+  </aside>
 
-    <script src="scripts/index.js"></script>
+  <main class="main">
+
+    <label for="menu-toggle" class="menu-btn">☰</label>
+
+    <iframe src="pages/home.html" name="iframe-main"></iframe>
+
+  </main>
+
 </body>
 
 </html>

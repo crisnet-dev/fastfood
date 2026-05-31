@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: 0;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+iframe {
+    flex: 1;
+    border: none;
+}
+
+:root {
+    --primary: #E53935;
+    --primary-dark: #C62828;
+    --secondary: #4A6FA5;
+    --bg-light: #F5F5F5;
+    --sidebar: #E0E0E0;
+    --text-dark: #212121;
+    --text-gray: #757575;
+    --card-bg: #FFFFFF;
+    --radius: 8px;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo escuro automático */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-light: #121212;
+        --sidebar: #1E1E1E;
+        --text-dark: #E0E0E0;
+        --text-gray: #B0B0B0;
+        --card-bg: #1E1E1E;
+        --secondary: #3A5A8A;
+    }
+
+    .search-box,
+    .icon-btn,
+    .btn-info,
+    #input-container img {
+        background: #2C2C2C !important;
+        color: #E0E0E0;
+    }
+
+    .search-box::placeholder {
+        color: #888;
+    }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
