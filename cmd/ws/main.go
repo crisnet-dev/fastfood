@@ -40,6 +40,12 @@ func SendPendentOrdersToAdmin(ws *websocket.Conn) {
 		return
 	}
 	ws.WriteJSON(orders)
+	err = repository.DeleteAllPendingOrders()
+	if err != nil {
+		log.Println(err)
+		msg := models.MessageWs{Type: "Error", Message: "Error to delete pendents orders!"}
+		ws.WriteJSON(msg)
+	}
 }
 
 func isAdmin(r *http.Request) bool {

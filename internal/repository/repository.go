@@ -95,7 +95,7 @@ func GetAllPendingOrderRepository() (models.PendingOrder, error) {
 }
 
 func DeleteAllPendingOrders() error {
-	_, err := database.DB.Exec("DELETE FROM pending_orders")
+	_, err := database.DB.Exec("TRUNCATE TABLE pending_orders;")
 	if err != nil {
 		return err
 	}

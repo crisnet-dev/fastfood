@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	// config.LoadConfig()
+	config.LoadConfig()
 	env := config.GetEnv()
 
 	if err := database.SetUpDB(); err != nil {
