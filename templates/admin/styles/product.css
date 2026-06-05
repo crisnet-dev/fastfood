@@ -34,7 +34,7 @@ body > h1 {
 }
 
 button {
-    padding: 15px;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: #fff;
@@ -52,4 +52,10 @@ img {
     object-fit: cover;
     margin-bottom: 20px;
     /* background-color: red; */
+}
+
+.btn-add-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

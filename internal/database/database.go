@@ -30,6 +30,11 @@ func SetUpDB() error {
 			price REAL NOT NULL,
 			image_url TEXT NOT NULL
 		);
+
+		CREATE TABLE IF NOT EXISTS pending_orders (
+			id SERIAL PRIMARY KEY,
+			orders JSONB
+		);
 	`,
 	)
 	if err != nil {

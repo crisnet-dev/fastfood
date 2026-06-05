@@ -4,3 +4,22 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
+.loading {
+    width: 34px;
+    height: 34px;
+    border-radius: 32px;
+    border: 3px solid #ff0000;
+    border-left: 3px solid transparent;
+    animation: loading .6s infinite linear;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

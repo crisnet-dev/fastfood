@@ -6,13 +6,13 @@ import (
 
 	"github.com/crisnet-dev/fastfood/internal/config"
 	"github.com/crisnet-dev/fastfood/internal/models"
+	"github.com/crisnet-dev/fastfood/internal/repository"
 	"github.com/crisnet-dev/fastfood/internal/utils"
 	"github.com/gorilla/websocket"
 )
 
 var upgrader = websocket.Upgrader{}
 var connections = make(map[*websocket.Conn]bool)
-var pendentOrders = []models.Order{}
 
 func updateAdminStatus() {
 	var order = struct {
@@ -32,9 +32,13 @@ func updateAdminStatus() {
 }
 
 func SendPendentOrdersToAdmin(ws *websocket.Conn) {
-	orders := struct {
-		Orders []models.Order `json:"orders"`
-	}{Orders: pendentOrders}
+	orders, err := repository.GetAllPendingOrderRepository()
+	if err != nil {
+		log.Println(err)
+		msg := models.MessageWs{Type: "Error", Message: "Error to proccess pendents orders!"}
+		ws.WriteJSON(msg)
+		return
+	}
 	ws.WriteJSON(orders)
 }
 
@@ -71,10 +75,7 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 
 	updateAdminStatus()
 
-	if len(pendentOrders) != 0 {
-		SendPendentOrdersToAdmin(ws)
-		pendentOrders = []models.Order{}
-	}
+	SendPendentOrdersToAdmin(ws)
 
 	for {
 		_, _, err := ws.ReadMessage()
@@ -88,13 +89,14 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 
 func NotifyAdmin(order models.Order) {
 	if len(connections) == 0 {
-		pendentOrders = append(pendentOrders, order)
+		repository.AddNewPendingOrderRepository(&order)
 		return
 	}
 	for conn := range connections {
 		if err := conn.WriteJSON(order); err != nil {
 			log.Println("Error to send message")
 			delete(connections, conn)
+			conn.Close()
 			updateAdminStatus()
 		}
 	}

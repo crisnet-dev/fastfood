@@ -45,6 +45,46 @@
 
     </ul>
 
+    <div class="popup-container" id="popup-container">
+
+        <div class="popup">
+
+            <div class="popup-header">
+                <h2>Novo Pedido</h2>
+
+                <div class="client-info">
+                    <p id="clientName"><strong>Cliente:</strong> Carlos Frescos</p>
+                    <p id="clientLocation"><strong>Localização:</strong> Luanda, Benfica</p>
+                </div>
+            </div>
+
+            <div class="products-container">
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3>Produtos Solicitados</h3>
+                    <h3 id="total-money" style="color: red;">Total 0.00 KZ</h3>
+                </div>
+
+                <ul class="products-list">
+
+                    <!-- <li class="product-item">
+                        <span>Hambúrguer Especial</span>
+                        <span>Quantidade: 5</span>
+                        <span>1.500 KZ</span>
+                    </li> -->
+
+                </ul>
+
+            </div>
+
+            <div class="popup-footer">
+                <button class="btn-cancel" onclick="closePopup()">Fechar</button>
+            </div>
+
+        </div>
+
+    </div>
+
     <script src="../scripts/orders.js"></script>
 
 </body>

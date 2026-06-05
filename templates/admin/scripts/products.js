@@ -19,11 +19,20 @@ const loadImage = () => {
 }
 
 const sendDataToServer = async (formData) => {
+    document.querySelector('.btn-add-product-text').style.display = 'none';
+    document.querySelector('.loading').style.display = 'block';
+
     const response = await fetch("/product/upload", {
         method: "POST",
         body: formData
     });
     const data = response => response.json();
+
+    document.querySelector('.btn-add-product-text').style.display = 'block';
+    document.querySelector('.loading').style.display = 'none';
+
+    console.log(data);
+    
 
     if (response.status !== 200) {
         alert("Não foi possível realizar a operação de momento!\n Para mais detalhes veja o console.");
