@@ -12,6 +12,7 @@ type Order struct {
 	Name     string    `json:"name"`
 	Products []Product `json:"products"`
 	Location string    `json:"location"`
+	Time     string    `json:"time"`
 }
 
 type MessageWs struct {

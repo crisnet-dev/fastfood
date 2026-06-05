@@ -67,10 +67,8 @@ function listOrders(data) {
         const name = document.createElement("span");
         const time = document.createElement("span");
 
-        const now = new Date();
-
         name.textContent = order.name;
-        time.textContent = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        time.textContent = order.time;
         btnDetails.textContent = "Ver Detalhes";
 
         orderCard.classList.add('order-card');
@@ -109,7 +107,7 @@ function addOrder(order) {
     const now = new Date();
 
     name.textContent = order.name;
-    time.textContent = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+    time.textContent = order.time;
     btnDetails.textContent = "Ver Detalhes";
 
     orderCard.classList.add('order-card');
